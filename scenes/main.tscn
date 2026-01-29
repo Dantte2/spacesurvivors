@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://bluxai312qkxu"]
+
+[ext_resource type="PackedScene" uid="uid://c8bmkux0yw5xn" path="res://scenes/player.tscn" id="1_o5qli"]
+[ext_resource type="Script" uid="uid://dv86wajn3mpy" path="res://scripts/camera_2d.gd" id="1_sugp2"]
+[ext_resource type="Script" uid="uid://bqiaqacyh8l6t" path="res://scripts/space_generator.gd" id="1_tefeu"]
+[ext_resource type="Texture2D" uid="uid://djjbxcd5wca6i" path="res://assets/background/Backgrounds/Blue11.png" id="3_sugp2"]
+[ext_resource type="Texture2D" uid="uid://b835x28ssk480" path="res://assets/background/Backgrounds/YellowStars1.png" id="4_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://bqf2ywwdvsdoh" path="res://scenes/asteroid.tscn" id="4_tbgi4"]
+
+[node name="Main" type="Node2D" unique_id=693775656]
+
+[node name="SpaceGenerator" type="Node2D" parent="." unique_id=1440002856]
+script = ExtResource("1_tefeu")
+asteroid_scene = ExtResource("4_tbgi4")
+spawn_radius = 3000.0
+min_distance = 1000.0
+max_asteroids = 20
+player = NodePath("../Player")
+
+[node name="Player" parent="." unique_id=633718620 instance=ExtResource("1_o5qli")]
+position = Vector2(661, 501)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=487080033]
+position = Vector2(960, 540)
+script = ExtResource("1_sugp2")
+target = NodePath("../Player")
+
+[node name="background" type="Node2D" parent="." unique_id=1910171208]
+
+[node name="mainbackground" type="Parallax2D" parent="background" unique_id=1916619141]
+z_index = -10
+scroll_scale = Vector2(0.1, 0.1)
+repeat_size = Vector2(1920, 1080)
+
+[node name="Sprite2D" type="Sprite2D" parent="background/mainbackground" unique_id=1873532274]
+position = Vector2(960, 540)
+texture = ExtResource("3_sugp2")
+
+[node name="stars" type="Parallax2D" parent="background" unique_id=2048914023]
+z_index = -9
+scroll_scale = Vector2(0.5, 0.5)
+repeat_size = Vector2(1920, 1080)
+
+[node name="Sprite2D" type="Sprite2D" parent="background/stars" unique_id=849257414]
+position = Vector2(960, 540)
+texture = ExtResource("4_jyhfs")

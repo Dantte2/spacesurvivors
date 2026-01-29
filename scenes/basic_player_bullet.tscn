@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://ckjp63xp7b04n"]
+
+[ext_resource type="Texture2D" uid="uid://dcrsdy51yeb8u" path="res://assets/projectiles/bullets/spritesheet.png" id="1_53brl"]
+[ext_resource type="Script" uid="uid://c0urj5x3ywq0h" path="res://scripts/basic_player_bullet.gd" id="1_p3hdh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p3hdh"]
+atlas = ExtResource("1_53brl")
+region = Rect2(0, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vmxai"]
+atlas = ExtResource("1_53brl")
+region = Rect2(48, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v3nj6"]
+atlas = ExtResource("1_53brl")
+region = Rect2(96, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ho71u"]
+atlas = ExtResource("1_53brl")
+region = Rect2(144, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cu38m"]
+atlas = ExtResource("1_53brl")
+region = Rect2(192, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h5jqo"]
+atlas = ExtResource("1_53brl")
+region = Rect2(240, 0, 48, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jpta4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p3hdh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vmxai")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v3nj6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ho71u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cu38m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h5jqo")
+}],
+"loop": true,
+"name": &"default",
+"speed": 15.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_53brl"]
+radius = 12.0
+height = 44.0
+
+[node name="BasicPlayerBullet" type="Area2D" unique_id=572453092]
+z_index = 1
+script = ExtResource("1_p3hdh")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1847503099]
+sprite_frames = SubResource("SpriteFrames_jpta4")
+frame_progress = 0.40584755
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=770132025]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_53brl")

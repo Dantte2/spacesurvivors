@@ -1,0 +1,101 @@
+[gd_scene format=3 uid="uid://c8bmkux0yw5xn"]
+
+[ext_resource type="Script" uid="uid://clybb0581dnqp" path="res://scripts/player.gd" id="1_d2wvv"]
+[ext_resource type="Texture2D" uid="uid://d1iaeu7n4uefa" path="res://assets/player/player_b_r1.png" id="1_y4r1p"]
+[ext_resource type="PackedScene" uid="uid://ckjp63xp7b04n" path="res://scenes/basic_player_bullet.tscn" id="2_3v2ag"]
+[ext_resource type="Texture2D" uid="uid://ehjfklc568q8" path="res://assets/player/player_b_r2.png" id="2_d2wvv"]
+[ext_resource type="Texture2D" uid="uid://pytw573bl67h" path="res://assets/player/player_b_m.png" id="3_3v2ag"]
+[ext_resource type="Texture2D" uid="uid://76pfo75xfido" path="res://assets/player/player_b_l1.png" id="4_jej6c"]
+[ext_resource type="Texture2D" uid="uid://c11goobaud6gg" path="res://assets/player/player_b_l2.png" id="5_f1ej7"]
+[ext_resource type="Texture2D" uid="uid://tcy71or1i4gh" path="res://assets/player/exhaust_01.png" id="6_oprun"]
+[ext_resource type="Texture2D" uid="uid://gltyva5ctr64" path="res://assets/player/exhaust_02.png" id="7_a8ls1"]
+[ext_resource type="Texture2D" uid="uid://cab3icbpsnb0b" path="res://assets/player/exhaust_03.png" id="8_qfm1y"]
+[ext_resource type="Texture2D" uid="uid://wkt5tq2a5yh0" path="res://assets/player/exhaust_04.png" id="9_fulsm"]
+[ext_resource type="Texture2D" uid="uid://ck1u3u3y6ghn4" path="res://assets/player/exhaust_05.png" id="10_4r5pv"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_60mlk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_y4r1p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_d2wvv")
+}],
+"loop": false,
+"name": &"left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_3v2ag")
+}],
+"loop": true,
+"name": &"normal",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_jej6c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_f1ej7")
+}],
+"loop": false,
+"name": &"right",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y4r1p"]
+radius = 11.0
+height = 42.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_i4ail"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_oprun")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_a8ls1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_qfm1y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_fulsm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_4r5pv")
+}],
+"loop": true,
+"name": &"default",
+"speed": 15.0
+}]
+
+[node name="Player" type="CharacterBody2D" unique_id=633718620]
+scale = Vector2(2, 2)
+script = ExtResource("1_d2wvv")
+bullet_scene = ExtResource("2_3v2ag")
+
+[node name="Ship" type="AnimatedSprite2D" parent="." unique_id=1518515718]
+sprite_frames = SubResource("SpriteFrames_60mlk")
+animation = &"normal"
+flip_v = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1893562954]
+shape = SubResource("CapsuleShape2D_y4r1p")
+
+[node name="Exhaust" type="AnimatedSprite2D" parent="." unique_id=340271734]
+z_index = -1
+position = Vector2(-1.5, -22)
+sprite_frames = SubResource("SpriteFrames_i4ail")
+autoplay = "default"
+frame_progress = 0.14600262
+flip_v = true
+
+[node name="BulletSpawn1" type="Node2D" parent="." unique_id=73072611]
+position = Vector2(11, 6.5)
+
+[node name="BulletSpawn2" type="Node2D" parent="." unique_id=98825936]
+position = Vector2(-14.5, 6.5)
