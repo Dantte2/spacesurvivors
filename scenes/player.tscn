@@ -75,6 +75,7 @@ animations = [{
 
 [node name="Player" type="CharacterBody2D" unique_id=633718620]
 scale = Vector2(2, 2)
+collision_mask = 2
 script = ExtResource("1_d2wvv")
 bullet_scene = ExtResource("2_3v2ag")
 
@@ -91,7 +92,7 @@ z_index = -1
 position = Vector2(-1.5, -22)
 sprite_frames = SubResource("SpriteFrames_i4ail")
 autoplay = "default"
-frame_progress = 0.14600262
+frame_progress = 0.96088994
 flip_v = true
 
 [node name="BulletSpawn1" type="Node2D" parent="." unique_id=73072611]

@@ -18,11 +18,16 @@ func _process(_delta):
     if not player_node:
         return
 
-    # Remove far away asteroids
-    for a in asteroids.duplicate():
+    # Remove far away or freed asteroids safely
+    asteroids = asteroids.filter(func(a):
+        if not is_instance_valid(a):
+            return false  # remove freed asteroids
         if a.global_position.distance_to(player_node.global_position) > spawn_radius * 2:
             a.queue_free()
-            asteroids.erase(a)
+            return false  # remove far away asteroids
+        return true  # keep the asteroid
+
+    )
 
     # Spawn new asteroids
     while asteroids.size() < max_asteroids:
@@ -30,10 +35,10 @@ func _process(_delta):
         var distance = randf_range(min_distance, spawn_radius)
         var pos = player_node.global_position + Vector2(cos(angle), sin(angle)) * distance
 
-        # Optional: check if inside camera rectangle
+        # Optional: skip spawning inside camera rectangle
         var cam_rect = Rect2(player_node.global_position - Vector2(960, 540), Vector2(1920, 1080))
         if cam_rect.has_point(pos):
-            continue  # skip spawning inside visible screen
+            continue
 
         var asteroid = asteroid_scene.instantiate()
         asteroid.global_position = pos

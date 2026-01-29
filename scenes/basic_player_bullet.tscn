@@ -59,12 +59,16 @@ height = 44.0
 
 [node name="BasicPlayerBullet" type="Area2D" unique_id=572453092]
 z_index = 1
+collision_layer = 4
+collision_mask = 2
 script = ExtResource("1_p3hdh")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1847503099]
 sprite_frames = SubResource("SpriteFrames_jpta4")
-frame_progress = 0.40584755
+frame_progress = 0.033353865
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=770132025]
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_53brl")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1759776948]
