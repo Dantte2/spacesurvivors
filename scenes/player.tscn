@@ -73,7 +73,7 @@ animations = [{
 "speed": 15.0
 }]
 
-[node name="Player" type="CharacterBody2D" unique_id=633718620]
+[node name="Player" type="CharacterBody2D" unique_id=633718620 groups=["player"]]
 scale = Vector2(2, 2)
 collision_mask = 2
 script = ExtResource("1_d2wvv")

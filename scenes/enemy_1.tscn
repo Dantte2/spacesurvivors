@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://00cum7wrdd8"]
+
+[ext_resource type="Script" uid="uid://comk6gsbm1x4f" path="res://scripts/enemy_1.gd" id="1_a1412"]
+[ext_resource type="Texture2D" uid="uid://bp8u83edvwrya" path="res://assets/enemies/Enemies/mine_22_01.png" id="1_tcmaw"]
+[ext_resource type="PackedScene" uid="uid://cc2d6xb5qex2m" path="res://scenes/deathexplosion.tscn" id="2_ejytf"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_a1412"]
+radius = 16.530275
+
+[node name="enemy1" type="CharacterBody2D" unique_id=46539930 groups=["enemy"]]
+scale = Vector2(2, 2)
+collision_layer = 2
+script = ExtResource("1_a1412")
+death_animation_scene = ExtResource("2_ejytf")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=54385698]
+texture = ExtResource("1_tcmaw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=734734321]
+shape = SubResource("CircleShape2D_a1412")

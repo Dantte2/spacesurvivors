@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://djjbxcd5wca6i" path="res://assets/background/Backgrounds/Blue11.png" id="3_sugp2"]
 [ext_resource type="Texture2D" uid="uid://b835x28ssk480" path="res://assets/background/Backgrounds/YellowStars1.png" id="4_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://bqf2ywwdvsdoh" path="res://scenes/asteroid.tscn" id="4_tbgi4"]
+[ext_resource type="PackedScene" uid="uid://00cum7wrdd8" path="res://scenes/enemy_1.tscn" id="7_o6xl0"]
 
 [node name="Main" type="Node2D" unique_id=693775656]
 
@@ -44,3 +45,6 @@ repeat_size = Vector2(1920, 1080)
 [node name="Sprite2D" type="Sprite2D" parent="background/stars" unique_id=849257414]
 position = Vector2(960, 540)
 texture = ExtResource("4_jyhfs")
+
+[node name="enemy1" parent="." unique_id=46539930 instance=ExtResource("7_o6xl0")]
+position = Vector2(1080, 549)
