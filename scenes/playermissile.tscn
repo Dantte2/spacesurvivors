@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://d0g26t6pjqfkp"]
+
+[ext_resource type="Script" uid="uid://b62pg0dalg74i" path="res://scripts/playermissile.gd" id="1_licbn"]
+[ext_resource type="Texture2D" uid="uid://bv23oiuno0xu7" path="res://assets/projectiles/missiles/Missile02C.png" id="1_tubas"]
+[ext_resource type="Texture2D" uid="uid://df4h24g6k780c" path="res://assets/vfx/exhaust/Level7_Turbo_001.png" id="2_licbn"]
+[ext_resource type="Texture2D" uid="uid://mfcswv7dyjm2" path="res://assets/vfx/exhaust/Level7_Turbo_003.png" id="3_epdd1"]
+[ext_resource type="Texture2D" uid="uid://drtxabue1ru7o" path="res://assets/vfx/exhaust/Level7_Turbo_004.png" id="4_3yur1"]
+[ext_resource type="Texture2D" uid="uid://w7j3o5nxdmkb" path="res://assets/vfx/exhaust/Level7_Turbo_005.png" id="5_bpgiw"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vqpk1"]
+height = 72.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dcgwm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_licbn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_epdd1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_3yur1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_bpgiw")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="playermissile" type="CharacterBody2D" unique_id=996672369]
+script = ExtResource("1_licbn")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1016592980]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_tubas")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=923053598]
+shape = SubResource("CapsuleShape2D_vqpk1")
+
+[node name="Exhaust" type="AnimatedSprite2D" parent="." unique_id=1591082099]
+z_index = -1
+position = Vector2(-1, 37)
+rotation = 1.5707964
+sprite_frames = SubResource("SpriteFrames_dcgwm")

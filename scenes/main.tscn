@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://bluxai312qkxu"]
 
+[ext_resource type="Script" uid="uid://codqj002whgsm" path="res://scripts/enemy_spaner.gd" id="1_eb6dy"]
 [ext_resource type="PackedScene" uid="uid://c8bmkux0yw5xn" path="res://scenes/player.tscn" id="1_o5qli"]
 [ext_resource type="Script" uid="uid://dv86wajn3mpy" path="res://scripts/camera_2d.gd" id="1_sugp2"]
 [ext_resource type="Script" uid="uid://bqiaqacyh8l6t" path="res://scripts/space_generator.gd" id="1_tefeu"]
@@ -13,6 +14,10 @@
 [ext_resource type="Texture2D" uid="uid://btouherj2p47w" path="res://assets/ui/green hp bar/Asset 1 - Copy.png" id="11_eb6dy"]
 
 [node name="Main" type="Node2D" unique_id=693775656]
+
+[node name="EnemySpaner" type="Node2D" parent="." unique_id=223570383]
+script = ExtResource("1_eb6dy")
+enemy_scene = ExtResource("7_o6xl0")
 
 [node name="SpaceGenerator" type="Node2D" parent="." unique_id=1440002856]
 script = ExtResource("1_tefeu")
@@ -49,9 +54,6 @@ repeat_size = Vector2(1920, 1080)
 [node name="Sprite2D" type="Sprite2D" parent="background/stars" unique_id=849257414]
 position = Vector2(960, 540)
 texture = ExtResource("4_jyhfs")
-
-[node name="enemy1" parent="." unique_id=46539930 instance=ExtResource("7_o6xl0")]
-position = Vector2(1080, 549)
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=1897713532]
 
